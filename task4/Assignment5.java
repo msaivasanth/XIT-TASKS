@@ -29,7 +29,7 @@ class LinkedList {
         }
     }
 
-    public void moveZerosToEnd() {
+    public Node moveZerosToEnd() {
         // System.out.println("Start.....");
         Node dummyNode1 = new Node(-1);
         Node dummyNode2 = new Node(-1);
@@ -54,16 +54,13 @@ class LinkedList {
         temp1.next = dummyNode2.next;
         temp2.next = null;
 
-
-        // ls.head = dummyNode1;
-
         // System.out.println("End....");
+        return dummyNode1.next;
     }
 
-    public void printList() {
+    public void printList(Node head) {
         Node temp = head;
 
-        System.out.print("Printing the elements of linked list: ");
         while(temp != null) {
             System.out.print(temp.data + " ");
             temp = temp.next;
@@ -83,11 +80,13 @@ public class Assignment5 {
             lis.insert(val);
         }
 
-        lis.printList();
+        System.out.print("Before moving zeroes to the end: ");
+        lis.printList(lis.head);
         // LinkedList res = new LinkedList();
-
-        lis.moveZerosToEnd();
-
-        lis.printList();
+        
+        Node res = lis.moveZerosToEnd();
+        
+        System.out.print("After moving zeroes to the end: ");
+        lis.printList(res);
     }
 }
