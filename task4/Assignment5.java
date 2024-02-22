@@ -12,15 +12,15 @@ class Node {
 }
 class LinkedList {
     Node head;
-    public void insert(LinkedList ls, int data) {
+    public void insert(int data) {
         Node newNode = new Node(data);
 
-        if(ls.head == null) {
-            ls.head = newNode;
+        if(head == null) {
+            head = newNode;
         }
 
         else {
-            Node temp = ls.head;
+            Node temp = head;
 
             while(temp.next != null) {
                 temp = temp.next;
@@ -29,7 +29,7 @@ class LinkedList {
         }
     }
 
-    public void moveZerosToEnd(Node ls) {
+    public void moveZerosToEnd() {
         // System.out.println("Start.....");
         Node dummyNode1 = new Node(-1);
         Node dummyNode2 = new Node(-1);
@@ -37,7 +37,7 @@ class LinkedList {
         Node temp1 = dummyNode1;
         Node temp2 = dummyNode2;
 
-        Node temp = ls;
+        Node temp = head;
 
         while(temp != null) {
             // System.out.println("Inside the loop");
@@ -60,8 +60,8 @@ class LinkedList {
         // System.out.println("End....");
     }
 
-    public void printList(Node ls) {
-        Node temp = ls;
+    public void printList() {
+        Node temp = head;
 
         System.out.print("Printing the elements of linked list: ");
         while(temp != null) {
@@ -80,14 +80,14 @@ public class Assignment5 {
 
         for(int i = 0; i < n; i++) {
             int val = s.nextInt();
-            lis.insert(lis, val);
+            lis.insert(val);
         }
 
-        lis.printList(lis.head);
+        lis.printList();
         // LinkedList res = new LinkedList();
 
-        lis.moveZerosToEnd(lis.head);
+        lis.moveZerosToEnd();
 
-        lis.printList(lis.head);
+        lis.printList();
     }
 }
